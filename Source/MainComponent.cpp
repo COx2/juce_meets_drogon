@@ -1,8 +1,12 @@
 #include "MainComponent.h"
+#include "drogon/drogon.h"
 
 //==============================================================================
 MainComponent::MainComponent()
 {
+    //restAPI = std::make_unique<cctn::api::v1::rest>(jsonSource);
+    std::dynamic_pointer_cast<cctn::api::v1::rest>(DrClassMap::getSingleInstance("cctn::api::v1::rest"))->init(this->jsonSource);
+
     httpServerThread = std::make_unique<HttpServerThread>();
     httpServerThread->startThread();
 
@@ -28,4 +32,7 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
+    this->jsonSource.setProperty("Width", this->getWidth());
+    this->jsonSource.setProperty("Height", this->getHeight());
+    std::dynamic_pointer_cast<cctn::api::v1::rest>(DrClassMap::getSingleInstance("cctn::api::v1::rest"))->init(this->jsonSource);
 }
