@@ -17,6 +17,7 @@ class MainComponent   : public juce::Component
 public:
     //==============================================================================
     MainComponent();
+    virtual ~MainComponent() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -25,6 +26,7 @@ public:
 private:
     //==============================================================================
     // Your private member variables go here...
+    std::unique_ptr<HttpServerThread> httpServerThread;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
