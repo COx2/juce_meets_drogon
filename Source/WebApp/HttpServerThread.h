@@ -1,7 +1,7 @@
 #pragma once
 
-#include <JuceHeader.h>
 #include <drogon/drogon.h>
+#include <juce_core/juce_core.h>
 
 class HttpServerThread : public juce::Thread
 {
@@ -36,3 +36,4 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(HttpServerThread)
 };
+

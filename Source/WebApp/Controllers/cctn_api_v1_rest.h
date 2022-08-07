@@ -1,7 +1,7 @@
 #pragma once
 
 #include <drogon/HttpController.h>
-#include <JuceHeader.h>
+#include <juce_core/juce_core.h>
 
 using namespace drogon;
 
